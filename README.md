@@ -10,7 +10,7 @@ We use Docker and Docker Compose for constructing the development environment of
 Make sure `docker` and `docker-compose` commands are available in current shell.
 
 In order to run `docker` command without **sudo** privilege:
-- Create **docker** group if it doesn't exist: `sudo groupadd docker`
+- Create **docker** group if it hasn't existed yet: `sudo groupadd docker`
 - Add current user to **docker** group: `sudo gpasswd -a ${whoami} docker`
 - You may need to logout in order to these changes to take effect.
 
@@ -21,7 +21,7 @@ Change current directory to application code folder and run the following comman
 
 Inside workspace container, run the following commands:
 - Install composer packages: `composer install --no-suggest`
-- Install the application: `php artisan rss:install`
+- Install the application: `php artisan feed:install`
 - Change permission for some directories: `chmod -R 777 storage/ bootstrap/`
 
 The default database credentials for different environments (database, username, password):
