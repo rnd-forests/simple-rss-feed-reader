@@ -1,0 +1,102 @@
+version: '2'
+
+services:
+
+  php-fpm:
+    container_name: rss_php-fpm
+    restart: always
+    image: framgia/laravel-php-fpm
+    volumes_from:
+      - application
+    expose:
+      - "9000"
+    links:
+      - workspace
+
+
+  application:
+    container_name: rss_application
+    image: debian
+    volumes:
+      - ./:/var/www/laravel
+
+
+  data:
+    container_name: rss_data
+    image: debian
+    volumes:
+      - .docker/rss_mysql:/var/lib/mysql
+      - .docker/rss_data:/data
+
+
+  data_test:
+    container_name: rss_data_test
+    image: debian
+    volumes:
+      - .docker/rss_mysql_test:/var/lib/mysql
+      - .docker/rss_data_test:/data
+
+
+  nginx:
+    container_name: rss_nginx
+    restart: always
+    image: thangtd90/nginx-plus
+    volumes_from:
+      - data
+      - application
+    volumes:
+      - ./.nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "8000:80"
+    links:
+      - php-fpm
+
+
+  mysql:
+    container_name: rss_mysql
+    restart: always
+    image: mysql
+    volumes_from:
+      - data
+    expose:
+      - "3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+
+  mysql_test:
+    container_name: rss_mysql_test
+    restart: always
+    image: mysql
+    volumes_from:
+      - data_test
+    expose:
+      - "3306"
+    environment:
+      MYSQL_DATABASE: ${DB_TEST_DATABASE}
+      MYSQL_USER: ${DB_TEST_USERNAME}
+      MYSQL_PASSWORD: ${DB_TEST_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+
+  redis:
+    container_name: rss_redis
+    restart: always
+    image: redis
+    expose:
+      - "6379"
+    volumes_from:
+      - data
+
+
+  workspace:
+    container_name: rss_workspace
+    restart: always
+    image: vinhnguyen1512/docker-laravel-dev
+    volumes_from:
+      - application
+    tty: true
+
