@@ -20,7 +20,7 @@ class Installation extends Command
      *
      * @var string
      */
-    protected $description = 'Install and configure RSS Feed Reader application.';
+    protected $description = 'Install and configure Feed Reader application.';
 
     /**
      * Execute the console command.
@@ -86,7 +86,7 @@ class Installation extends Command
     }
 
     /**
-     * Updates database credentials.
+     * Migrates databases.
      *
      * @return void
      */
@@ -152,7 +152,7 @@ class Installation extends Command
     }
 
     /**
-     * Creates new Symfony process to run the given command.
+     * Creates new Symfony process to run a given command.
      *
      * @param  string|array $command
      * @param  string $question

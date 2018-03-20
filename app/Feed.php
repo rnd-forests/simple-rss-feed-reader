@@ -16,7 +16,7 @@ class Feed extends Model
 
     /**
      * The accessors to append to the model's array form.
-     *
+     */
     protected $appends = ['path'];
 
     /**
@@ -58,7 +58,7 @@ class Feed extends Model
     }
 
     /**
-     * Fetch the path to the feed as a property.
+     * Fetches the path to the feed as a property.
      *
      * @return string
      */
@@ -78,7 +78,7 @@ class Feed extends Model
     }
 
     /**
-     * Set the proper slug attribute.
+     * Sets the proper slug attribute.
      *
      * @param string $value
      */
@@ -92,7 +92,7 @@ class Feed extends Model
     }
 
     /**
-     * Get the route key name.
+     * Gets the route key name.
      *
      * @return string
      */

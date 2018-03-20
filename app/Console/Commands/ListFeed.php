@@ -43,7 +43,7 @@ class ListFeed extends Command
 
         $feeds = $query->latest()->limit($limit)->get();
 
-        $this->toTable($feeds);
+        $this->showTable($feeds);
     }
 
     /**
@@ -52,7 +52,7 @@ class ListFeed extends Command
      * @param  \Illuminate\Database\Eloquent\Collection $feeds
      * @return void
      */
-    protected function toTable($feeds)
+    protected function showTable($feeds)
     {
         $headers = ['Title', 'URL'];
 

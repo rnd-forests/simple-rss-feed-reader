@@ -66,16 +66,16 @@ class ReadFeed extends Command
             return;
         }
 
-        $this->toTable($data);
+        $this->showTable($data);
     }
 
     /**
-     * Converts feed to table format.
+     * Converts feeds to table format.
      *
      * @param  \Illuminate\Support\Collection $data
      * @return void
      */
-    protected function toTable($data)
+    protected function showTable($data)
     {
         $headers = ['Title', 'Published Date'];
 

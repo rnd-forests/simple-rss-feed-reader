@@ -2,12 +2,12 @@
 
 namespace App\Components;
 
-use IteratorAggregate;
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Fluent;
-use Framgia\Viblo\Http\Controllers\Controller;
+use IteratorAggregate;
 
 class Grid extends Fluent implements IteratorAggregate
 {

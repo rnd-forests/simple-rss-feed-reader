@@ -54,7 +54,7 @@ interface Entry
     public function getContent();
 
     /**
-     * Gets a specific link of the entry.
+     * Gets the link of the entry.
      *
      * @return string
      */

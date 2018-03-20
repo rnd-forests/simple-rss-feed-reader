@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * RSS feeds associated with a given user.
+     * Feeds associated with a given user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

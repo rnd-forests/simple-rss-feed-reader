@@ -39,7 +39,7 @@ class Form extends Fluent
     }
 
     /**
-     * Form HTTP method.
+     * Gets form HTTP method.
      *
      * @return string
      */

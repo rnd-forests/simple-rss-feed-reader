@@ -8,12 +8,15 @@ use InvalidArgumentException;
 abstract class BaseEntry
 {
     /**
-     * The entry in XML object format.
+     * The XML representation of the entry.
      *
      * @var \SimpleXMLElement
      */
     protected $entryXml;
 
+    /**
+     * @var string
+     */
     protected $entryXmlString;
 
     /**

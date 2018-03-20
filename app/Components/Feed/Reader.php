@@ -71,7 +71,7 @@ class Reader
         $response = $this->get($url);
 
         if ($response instanceof Response) {
-            throw new InvalidFeedException;
+            throw new InvalidFeedException('Cannot get feed content.');
         }
 
         $this->type = $this->detectType($response);
@@ -84,7 +84,7 @@ class Reader
     }
 
     /**
-     * Reads and parses the content of the feed.
+     * Reads and parses the non-cached content of the feed.
      *
      * @param  \App\Feed $feed
      * @return \Illuminate\Support\Collection
@@ -112,7 +112,7 @@ class Reader
     }
 
     /**
-     * Detects RSS feed type using header information.
+     * Detects feed type using header information.
      *
      * @param  \Zttp\ZttpResponse $response
      * @return string
@@ -129,7 +129,7 @@ class Reader
             return self::RSS_TYPE;
         }
 
-        throw new InvalidFeedException;
+        throw new InvalidFeedException('Cannot detect feed type.');
     }
 
     /**
@@ -169,7 +169,6 @@ class Reader
     /**
      * Performs a GET request.
      *
-     * @codeCoverageIgnore
      * @param string $url
      * @param array $params
      * @return \Illuminate\Http\JsonResponse|array
