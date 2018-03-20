@@ -32,6 +32,15 @@ If you update these environment variables, you must restart docker containers in
 
 By default, port 80 of NGINX container is mapped to port 8000 of the host machine. If this port is currently used by another application, you can change that port by editing `docker-compose.yml`.
 
+Some tested feeds:
+- Laravel News: https://feed.laravel-news.com
+- Viblo: https://viblo.asia/rss
+- Laracasts: https://laracasts.com/feed
+- Ansible Blog: https://www.ansible.com/blog/rss.xml
+- VNExpress Law: https://vnexpress.net/rss/phap-luat.rss
+- VNExpress Sport: https://vnexpress.net/rss/the-thao.rss
+- Vue.js Feed: https://vuejsfeed.com/feed
+
 ## Demo
 
 **CLI**
