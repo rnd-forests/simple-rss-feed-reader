@@ -23,6 +23,7 @@ Inside workspace container, run the following commands:
 - Install composer packages: `composer install --no-suggest`
 - Install the application: `php artisan feed:install`
 - Change permission for some directories: `chmod -R 777 storage/ bootstrap/`
+- Seed the database: `php artisan db:seed`
 
 The default database credentials for different environments (database, username, password):
 - Local environment: **homestead**, **homestead**, **secret**
