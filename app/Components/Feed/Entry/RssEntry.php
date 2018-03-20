@@ -65,6 +65,6 @@ class RssEntry extends BaseEntry implements Entry
      */
     public function getDescription()
     {
-        return (string) optional($this->entryXml)->description;
+        return purify((string) optional($this->entryXml)->description);
     }
 }

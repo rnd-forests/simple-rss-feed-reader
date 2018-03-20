@@ -1,5 +1,7 @@
 <?php
 
+use Stevebauman\Purify\Facades\Purify;
+
 /*
 |--------------------------------------------------------------------------
 | Application helper functions
@@ -24,5 +26,16 @@ if (!function_exists('convert_to_xml')) {
         }
 
         return $xml;
+    }
+}
+
+if (!function_exists('purify')) {
+    function purify($content)
+    {
+        if (empty($content)) {
+            return null;
+        }
+
+        return Purify::clean($content);
     }
 }

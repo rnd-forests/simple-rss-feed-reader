@@ -43,7 +43,7 @@ class AtomEntry extends BaseEntry implements Entry
      */
     public function getContent()
     {
-        return optional($this->entryXml)->content;
+        return purify(optional($this->entryXml)->content);
     }
 
     /**
@@ -59,6 +59,6 @@ class AtomEntry extends BaseEntry implements Entry
      */
     public function getDescription()
     {
-        return (string) optional($this->entryXml)->summary;
+        return purify((string) optional($this->entryXml)->summary);
     }
 }
