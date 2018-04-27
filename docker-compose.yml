@@ -95,7 +95,7 @@ services:
   workspace:
     container_name: rss_workspace
     restart: always
-    image: vinhnguyen1512/docker-laravel-dev
+    image: vinhnguyen1512/laravel-workspace
     volumes_from:
       - application
     tty: true
